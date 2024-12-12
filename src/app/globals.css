@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+
+  .dark {
+    --background: #1a1a1a;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 添加平滑滚动效果 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 卡片悬停效果 */
+.countdown-card {
+  transition: all 0.2s ease-in-out;
+}
+
+/* 主题切换过渡效果 */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
