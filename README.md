@@ -1,45 +1,36 @@
-# Holiday Countdown
-
-A beautiful and interactive holiday countdown web application built with Next.js 15, React 19, Radix UI, and TailwindCSS.
-
-## Features
-
-- 🎯 Single page application with beautiful countdown cards
-- ✨ Interactive animations and effects for each holiday
-- 🎨 Modern and responsive design using Radix UI
-- 📅 Smart sorting - nearest holidays appear first
-- 🎊 Special holiday-specific animations and icons
-
-## Tech Stack
-
-- Next.js 15
-- React 19
-- Radix UI
-- TailwindCSS
-- TypeScript
-- PNPM (Package Manager)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
+First, run the development server:
+
 ```bash
-# Install dependencies
-pnpm install
-
-# Run development server
+npm run dev
+# or
+yarn dev
+# or
 pnpm dev
-
-# Build for production
-pnpm build
-
-# Start production server
-pnpm start
+# or
+bun dev
 ```
 
-## Development
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The application is built with the latest web technologies and follows modern development practices. It uses:
-- App Router for routing
-- Server Components for improved performance
-- Tailwind CSS for styling
-- Radix UI for accessible components
-- TypeScript for type safety
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
