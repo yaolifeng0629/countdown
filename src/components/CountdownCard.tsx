@@ -13,14 +13,12 @@ const getTypeStyles = (type: Holiday['type']) => {
   switch (type) {
     case 'holiday':
       return 'border-2 border-red-500/20';
-    case 'weekend':
-      return 'border-2 border-orange-500/20';
     case 'today':
       return 'border-2 border-purple-500/20';
     case 'custom':
       return 'border-2 border-blue-500/20';
     default:
-      return '';
+      return 'border-2 border-gray-500/20';
   }
 };
 
