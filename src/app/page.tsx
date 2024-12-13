@@ -3,14 +3,28 @@
 import { motion } from 'framer-motion';
 import { CountdownCard } from '@/components/CountdownCard';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import LoadingSpinner from '@/components/LoadingSpinner';
 import holidays from '@/data/holidays';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <main className="container mx-auto min-h-screen p-4 pt-16">
       <div className="fixed right-4 top-4">
         <ThemeToggle />
       </div>
+      {isLoading && <LoadingSpinner />}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
