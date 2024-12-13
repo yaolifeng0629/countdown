@@ -26,6 +26,26 @@ const fixedHolidays: Holiday[] = [
     repeat: 'yearly'
   },
   {
+    id: 'chinese-new-year-eve',
+    name: '除夕',
+    date: new Date(2025, 0, 28),
+    icon: '🧨',
+    description: '阖家团圆夜',
+    color: 'bg-red-600',
+    type: 'holiday',
+    repeat: 'yearly'
+  },
+  {
+    id: 'spring-festival',
+    name: '春节',
+    date: new Date(2025, 0, 29),
+    icon: '🏮',
+    description: '农历新年',
+    color: 'bg-red-600',
+    type: 'holiday',
+    repeat: 'yearly'
+  },
+  {
     id: 'valentines-day',
     name: '情人节',
     date: new Date(currentYear, 1, 14),
@@ -166,9 +186,19 @@ const fixedHolidays: Holiday[] = [
     repeat: 'yearly'
   },
   {
+    id: 'dragon-boat',
+    name: '端午节',
+    date: new Date(2025, 4, 31),
+    icon: '🚣',
+    description: '赛龙舟，吃粽子',
+    color: 'bg-emerald-500',
+    type: 'holiday',
+    repeat: 'yearly'
+  },
+  {
     id: 'winter-solstice',
     name: '冬至',
-    date: new Date(currentYear, 11, 22),
+    date: new Date(2025, 11, 21),
     icon: '❄️',
     description: '冬至快乐',
     color: 'bg-blue-200',
@@ -178,7 +208,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'christmas-eve',
     name: '平安夜',
-    date: new Date(currentYear, 11, 24),
+    date: new Date(2025, 11, 24),
     icon: '🎄',
     description: '圣诞平安夜',
     color: 'bg-green-500',
@@ -188,7 +218,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'christmas',
     name: '圣诞节',
-    date: new Date(currentYear, 11, 25),
+    date: new Date(2025, 11, 25),
     icon: '🎅',
     description: 'Merry Christmas!',
     color: 'bg-green-600',
@@ -258,7 +288,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'ghost-festival',
     name: '中元节',
-    date: new Date(2025, 8, 15),
+    date: new Date(2025, 8, 6),
     icon: '🏮',
     description: '慎终追远',
     color: 'bg-gray-600',
@@ -268,7 +298,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'mid-autumn',
     name: '中秋节',
-    date: new Date(2025, 8, 29),
+    date: new Date(2025, 9, 6),
     icon: '🌕',
     description: '月圆人团圆',
     color: 'bg-yellow-500',
@@ -278,7 +308,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'double-ninth',
     name: '重阳节',
-    date: new Date(2025, 9, 6),
+    date: new Date(2025, 9, 29),
     icon: '🍂',
     description: '敬老节',
     color: 'bg-yellow-600',
@@ -288,7 +318,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'hanyi-festival',
     name: '寒衣节',
-    date: new Date(2025, 9, 15),
+    date: new Date(2025, 10, 20),
     icon: '👘',
     description: '寒衣节',
     color: 'bg-blue-300',
@@ -298,7 +328,7 @@ const fixedHolidays: Holiday[] = [
   {
     id: 'lower-yuan',
     name: '下元节',
-    date: new Date(2025, 10, 26),
+    date: new Date(2025, 11, 4),
     icon: '🏮',
     description: '下元节',
     color: 'bg-red-400',
