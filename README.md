@@ -1,20 +1,19 @@
 # Holiday Countdown
-A beautiful and interactive holiday countdown web application built with Next.js 15, React 19, Radix UI, and TailwindCSS.
+
+一个漂亮简洁的假期倒计时
+
 ![](./image.png)
-## Features
-- 🎯 Single page application with beautiful countdown cards
-- ✨ Interactive animations and effects for each holiday
-- 🎨 Modern and responsive design using Radix UI
-- 📅 Smart sorting - nearest holidays appear first
-- 🎊 Special holiday-specific animations and icons
-## Tech Stack
-- Next.js 15
-- React 19
-- Radix UI
-- TailwindCSS
-- TypeScript
-- PNPM (Package Manager)
-## Getting Started
+
+## 特点
+
+-   带漂亮倒计时卡的单页应用程序
+-   每个假期的互动动画和效果
+-   🎨使用Radix UI进行现代且响应式的设计
+-   📅智能排序-最近的假期先出现
+-   特殊假期特定动画和图标
+
+## 开始构建
+
 ```bash
 # Install dependencies
 pnpm install
@@ -25,10 +24,3 @@ pnpm build
 # Start production server
 pnpm start
 ```
-## Development
-The application is built with the latest web technologies and follows modern development practices. It uses:
-- App Router for routing
-- Server Components for improved performance
-- Tailwind CSS for styling
-- Radix UI for accessible components
-- TypeScript for type safety
