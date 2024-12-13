@@ -7,7 +7,7 @@ import holidays from '@/data/holidays';
 
 export default function Home() {
   return (
-    <main className="container mx-auto min-h-screen p-4 pt-24">
+    <main className="container mx-auto min-h-screen p-4 pt-16">
       <div className="fixed right-4 top-4">
         <ThemeToggle />
       </div>
@@ -21,7 +21,7 @@ export default function Home() {
           <span className="ml-2">⏰</span>
         </h1>
       </motion.div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pb-16">
         {holidays.map((holiday) => (
           <CountdownCard key={holiday.id} holiday={holiday} />
         ))}
