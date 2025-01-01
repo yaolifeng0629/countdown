@@ -14,7 +14,7 @@ export interface Holiday {
 // 获取今天的日期
 const today = new Date();
 const currentYear = today.getFullYear();
-const nextYear = currentYear + 1;
+const nextYear = currentYear;
 
 // 固定节日
 const fixedHolidays: Holiday[] = [
