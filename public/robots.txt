@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Sitemap: https://yaolifeng.com/countdown/sitemap.xml
+
+# Allow all crawlers
+User-agent: *
+Disallow:
+
+# Allow Google crawlers
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Allow Bing crawlers
+User-agent: Bingbot
+Allow: /
+
+# Allow Baidu crawlers
+User-agent: Baiduspider
+Allow: /
+
+# Crawl-delay
+Crawl-delay: 10
