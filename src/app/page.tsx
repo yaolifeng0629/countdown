@@ -35,11 +35,30 @@ export default function Home() {
           <span className="ml-2">⏰</span>
         </h1>
       </motion.div>
+
+      {/* Author Info and Sponsor Button */}
+      <div className="mb-8 flex flex-row items-center justify-center gap-6">
+        <a href="https://yaolifeng.com" target="_blank" rel="noopener noreferrer"
+          className="cursor-pointer transition-all hover:scale-105 border-b border-dashed border-gray-400 hover:border-gray-900 dark:hover:border-gray-200"
+          title="点击访问个人网站">
+          作者：姚利锋(Immerse)
+        </a>
+        <a
+          href="https://yaolifeng.com/sponsor.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center rounded-md bg-[#dc2626] px-4 py-1.5 text-white hover:opacity-90 transition-all hover:scale-105 cursor-pointer"
+        >
+          赞赏站长
+        </a>
+      </div>
+
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pb-16">
         {holidays.map((holiday) => (
           <CountdownCard key={holiday.id} holiday={holiday} />
         ))}
       </div>
+
     </main>
   );
 }
