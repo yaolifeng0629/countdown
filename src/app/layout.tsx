@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_SC, Ma_Shan_Zheng, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+// Google 的 CJK 字体不支持 subset 参数，需关闭 preload（按 unicode-range 分片按需加载）
+const serifSC = Noto_Serif_SC({ weight: ["400", "600", "700", "900"], variable: "--font-serif-sc", preload: false });
+const kai = Ma_Shan_Zheng({ weight: "400", variable: "--font-kai", preload: false });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
@@ -70,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans`}>
+      <body className={`${serifSC.variable} ${kai.variable} ${geistMono.variable} font-serif`}>
         <Providers>{children}</Providers>
       </body>
     </html>

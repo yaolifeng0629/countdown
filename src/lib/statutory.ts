@@ -39,12 +39,14 @@ const STATUTORY_NAME_MAP: Record<string, string> = {
     'national-day': '国庆节',
 };
 
-const CACHE_KEY = 'statutory-holidays-v2';
+const CACHE_KEY = 'statutory-holidays-v3';
 const CACHE_TTL = 7 * 24 * 60 * 60 * 1000; // 7 天
 
-function apiUrl(year: number): string {
-    return `https://raw.githubusercontent.com/NateScarlet/holiday-cn/master/${year}.json`;
-}
+/** 同一数据的两个镜像：jsDelivr CDN（国内可达性好）优先，GitHub Raw 兜底 */
+const ENDPOINTS = [
+    (year: number) => `https://cdn.jsdelivr.net/gh/NateScarlet/holiday-cn@master/${year}.json`,
+    (year: number) => `https://raw.githubusercontent.com/NateScarlet/holiday-cn/master/${year}.json`,
+];
 
 function fmt(dateStr: string): string {
     const [, m, d] = dateStr.split('-');
@@ -96,10 +98,18 @@ function extractInfo(days: HolidayCnDay[], officialName: string, targetDate: Dat
 type StatutoryMap = Record<string, StatutoryInfo>;
 
 async function fetchYear(year: number): Promise<HolidayCnDay[]> {
-    const res = await fetch(apiUrl(year));
-    if (!res.ok) throw new Error(`holiday-cn ${year}: HTTP ${res.status}`);
-    const data: HolidayCnYear = await res.json();
-    return data.days;
+    let lastError: unknown;
+    for (const url of ENDPOINTS.map(e => e(year))) {
+        try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data: HolidayCnYear = await res.json();
+            return data.days ?? [];
+        } catch (e) {
+            lastError = e;
+        }
+    }
+    throw lastError;
 }
 
 /**

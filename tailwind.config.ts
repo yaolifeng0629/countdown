@@ -10,19 +10,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        paper: "var(--paper)",
         surface: "var(--surface)",
-        "surface-muted": "var(--surface-muted)",
-        foreground: "var(--foreground)",
-        secondary: "var(--text-secondary)",
-        "heading-muted": "var(--heading-muted)",
-        subtle: "var(--border-subtle)",
+        "surface-warm": "var(--surface-warm)",
+        ink: "var(--ink)",
+        secondary: "var(--ink-secondary)",
+        cinnabar: "var(--cinnabar)",
+        "cinnabar-deep": "var(--cinnabar-deep)",
+        gold: "var(--gold)",
+        "gold-bright": "var(--gold-bright)",
+        warm: "var(--border-warm)",
         strong: "var(--border-strong)",
         footer: "var(--footer-bg)",
       },
       fontFamily: {
-        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif-sc)", "Songti SC", "SimSun", "serif"],
+        kai: ["var(--font-kai)", "Kaiti SC", "KaiTi", "cursive"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        sans: ["system-ui", "-apple-system", "PingFang SC", "Microsoft YaHei", "sans-serif"],
       },
       maxWidth: {
         section: "1200px",

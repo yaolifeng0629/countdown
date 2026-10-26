@@ -24,5 +24,9 @@ declare module 'lunar-javascript' {
         getNextJieQi(): JieQi;
         /** 节气表：节气名（如 '清明'、'冬至'）→ 公历日期 */
         getJieQiTable(): Record<string, Solar>;
+        /** 农历年干支，如 '丁未' */
+        getYearInGanZhi(): string;
+        /** 农历年生肖，如 '羊' */
+        getYearShengXiao(): string;
     }
 }
