@@ -11,12 +11,21 @@ export default {
     extend: {
       colors: {
         background: "var(--background)",
+        surface: "var(--surface)",
+        "surface-muted": "var(--surface-muted)",
         foreground: "var(--foreground)",
+        secondary: "var(--text-secondary)",
+        "heading-muted": "var(--heading-muted)",
+        subtle: "var(--border-subtle)",
+        strong: "var(--border-strong)",
+        footer: "var(--footer-bg)",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+      },
+      maxWidth: {
+        section: "1200px",
       },
     },
   },

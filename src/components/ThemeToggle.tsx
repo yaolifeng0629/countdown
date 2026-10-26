@@ -1,33 +1,26 @@
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-  if (!mounted) {
-    return null;
-  }
+    if (!mounted) {
+        return <span className="h-9 w-9" aria-hidden />;
+    }
 
-  return (
-    <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="fixed top-4 right-4 rounded-full p-2 text-gray-800 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700"
-      aria-label="Toggle theme"
-    >
-      {theme === 'dark' ? (
-        <SunIcon className="h-6 w-6" />
-      ) : (
-        <MoonIcon className="h-6 w-6" />
-      )}
-    </motion.button>
-  );
+    return (
+        <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="flex h-9 w-9 items-center justify-center rounded-md border border-subtle bg-surface text-secondary shadow-[0_4px_4px_rgba(23,23,23,0.04)] transition-colors hover:text-foreground"
+            aria-label="切换深浅色主题"
+        >
+            {theme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
+        </button>
+    );
 }
