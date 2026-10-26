@@ -93,19 +93,106 @@ body::before {
     transform: rotate(-3deg);
 }
 
-/* 卡片过渡：只过渡需要的属性 */
+/* 卡片交互：朱砂晕染 + 红线描边 + 盖章，去掉烂大街的 translateY 上浮 */
 .countdown-card {
     box-shadow: var(--shadow-card);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    transition: box-shadow 0.3s ease;
+}
+
+/* 1. 晕染：跟随光标的朱砂径向洇开（--mx/--my 由鼠标位置写入） */
+.countdown-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        150px circle at var(--mx, 50%) var(--my, 50%),
+        color-mix(in srgb, var(--cinnabar) 9%, transparent),
+        transparent 72%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.countdown-card:hover::before {
+    opacity: 1;
+}
+
+/* 2. 红线描边：hover 时一圈朱砂线从左向右「缝」出来 */
+.countdown-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1.5px solid var(--cinnabar);
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+    pointer-events: none;
+}
+
+.countdown-card:hover::after {
+    clip-path: inset(0 0 0 0);
 }
 
 .countdown-card:hover {
-    transform: translateY(-3px);
     box-shadow: var(--shadow-card-hover);
-    border-color: var(--border-strong);
+}
+
+/* 3. 盖章：图标像印章一样按下回弹，带一圈未干的印泥 */
+.card-icon {
+    transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease;
+}
+
+.countdown-card:hover .card-icon {
+    transform: rotate(-6deg) scale(1.08);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--cinnabar) 18%, transparent);
+}
+
+/* 4. 数字格随 hover 转暖 */
+.countdown-card .time-unit {
+    transition: background-color 0.3s ease;
+}
+
+.countdown-card:hover .time-unit {
+    background-color: color-mix(in srgb, var(--cinnabar) 7%, transparent);
+}
+
+/* 印章 hover：从斜置「压平压实」 */
+.seal {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a:hover .seal,
+.seal:hover,
+.countdown-card:hover .seal {
+    transform: rotate(0deg) scale(1.08);
+}
+
+/* 笔触下划线：从右收起、从左画出，像一笔写过去 */
+.brush-link {
+    position: relative;
+}
+
+.brush-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--cinnabar), var(--gold));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.brush-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .tabular-nums {

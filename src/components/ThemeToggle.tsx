@@ -17,10 +17,12 @@ export function ThemeToggle() {
     return (
         <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="flex h-9 w-9 items-center justify-center rounded-md border border-warm bg-surface text-secondary transition-colors hover:border-strong hover:text-ink"
+            className="group flex h-9 w-9 items-center justify-center rounded-md border border-warm bg-surface text-secondary transition-all hover:border-cinnabar hover:text-cinnabar"
             aria-label="切换深浅色主题"
         >
-            {theme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
+            <span className="transition-transform duration-500 group-hover:rotate-[135deg]">
+                {theme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
+            </span>
         </button>
     );
 }

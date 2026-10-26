@@ -29,7 +29,7 @@ export default function Home() {
                             href="https://yaolifeng.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hidden font-sans text-sm text-secondary transition-colors hover:text-cinnabar sm:block"
+                            className="brush-link hidden font-sans text-sm text-secondary transition-colors hover:text-cinnabar sm:block"
                         >
                             作者：姚利锋
                         </a>
@@ -82,14 +82,14 @@ export default function Home() {
                         节日倒计时
                     </div>
                     <div className="flex items-center gap-5 text-[#b89b6e]">
-                        <a href="https://yaolifeng.com" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-gold-bright">
+                        <a href="https://yaolifeng.com" target="_blank" rel="noopener noreferrer" className="brush-link transition-colors hover:text-gold-bright">
                             作者主页
                         </a>
                         <a
                             href="https://yaolifeng.com/sponsor.html"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="transition-colors hover:text-gold-bright"
+                            className="brush-link transition-colors hover:text-gold-bright"
                         >
                             请作者喝咖啡
                         </a>
@@ -97,7 +97,7 @@ export default function Home() {
                             href="https://github.com/yaolifeng0629/countdown"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="transition-colors hover:text-gold-bright"
+                            className="brush-link transition-colors hover:text-gold-bright"
                         >
                             GitHub
                         </a>

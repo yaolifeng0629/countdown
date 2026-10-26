@@ -18,6 +18,14 @@ interface CountdownCardProps {
 export function CountdownCard({ holiday, index, isNext, statutory }: CountdownCardProps) {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
+    /** 把光标位置写入 CSS 变量，驱动朱砂晕染跟随 */
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const el = e.currentTarget;
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        el.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    };
+
     useEffect(() => {
         const update = () => {
             const now = new Date();
@@ -44,6 +52,7 @@ export function CountdownCard({ holiday, index, isNext, statutory }: CountdownCa
             <HoverCard.Root openDelay={200}>
                 <HoverCard.Trigger asChild>
                     <div
+                        onMouseMove={handleMouseMove}
                         className={cn(
                             'countdown-card relative w-full cursor-default rounded-xl border border-warm bg-surface p-5',
                             isNext && 'border-cinnabar'
@@ -56,7 +65,7 @@ export function CountdownCard({ holiday, index, isNext, statutory }: CountdownCa
                         )}
                         <div className="flex items-center gap-3">
                             <span
-                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[22px]"
+                                className="card-icon flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-[22px]"
                                 style={{ backgroundColor: `${holiday.accent}1f` }}
                             >
                                 {holiday.icon}
@@ -115,7 +124,7 @@ export function CountdownCard({ holiday, index, isNext, statutory }: CountdownCa
 
 function TimeUnit({ value, unit, highlight }: { value: number; unit: string; highlight?: boolean }) {
     return (
-        <div className={cn('flex flex-col items-center rounded-lg py-2', highlight ? 'accent-wash' : 'bg-surface-warm')}>
+        <div className={cn('time-unit flex flex-col items-center rounded-lg py-2', highlight ? 'accent-wash' : 'bg-surface-warm')}>
             <span className="tabular-nums font-mono text-xl font-bold leading-6">{String(value).padStart(2, '0')}</span>
             <span className="mt-0.5 font-sans text-[11px] leading-3 text-secondary">{unit}</span>
         </div>
